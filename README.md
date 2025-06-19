@@ -1,1 +1,0 @@
-# mobilno_projekt

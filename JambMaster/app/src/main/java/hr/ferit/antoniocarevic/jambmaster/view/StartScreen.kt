@@ -1,4 +1,4 @@
-package hr.ferit.antoniocarevic.jambmaster
+package hr.ferit.antoniocarevic.jambmaster.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,6 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
+import hr.ferit.antoniocarevic.jambmaster.R
 import hr.ferit.antoniocarevic.jambmaster.ui.theme.BluePrimary
 import hr.ferit.antoniocarevic.jambmaster.ui.theme.OrangeSecondary
 import hr.ferit.antoniocarevic.jambmaster.ui.theme.playFontFamily
@@ -23,10 +25,10 @@ import hr.ferit.antoniocarevic.jambmaster.ui.theme.playFontFamily
 @Composable
 fun StartScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+
 ) {
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(color = BluePrimary),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -102,7 +104,7 @@ fun StartScreen(
             }
 
             Button(
-                onClick = { /* Navigate to results screen when implemented */ },
+                onClick = { navController.navigate("played_games") },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = OrangeSecondary,
                     contentColor = Color.White
@@ -120,6 +122,31 @@ fun StartScreen(
                     fontSize = 20.sp
                 )
             }
+
+            Button(
+                onClick = {
+                    FirebaseAuth.getInstance().signOut()
+                    navController.navigate("login") {
+                        popUpTo("start") { inclusive = true }
+                    } },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Red,
+                    contentColor = Color.White
+                ),
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(95.dp)
+                    .padding(bottom = 16.dp)
+            ) {
+                Text(
+                    text = "Logout",
+                    fontFamily = playFontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+            }
+
         }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362038922283",
+    "project_id": "jambmaster-bec4e",
+    "storage_bucket": "jambmaster-bec4e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362038922283:android:fef1ac6acc75e3c1f72e6e",
+        "android_client_info": {
+          "package_name": "hr.ferit.antoniocarevic.jambmaster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk9vlRw1xdaEuEu4KcRb6GodCujOP061I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
